@@ -1,0 +1,21 @@
+
+apiVersion: v1
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::647066518166:role/eksctl-roboshop-dev-nodegroup-robo-NodeInstanceRole-GElBPYu9MNQf
+      groups:
+      - system:bootstrappers
+      - system:nodes
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - groups:
+      - roboshop-trainee
+      userarn: arn:aws:iam::647066518166:user/eliyas
+      username: eliyas  
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2025-12-30T10:28:40Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "1023"
+  uid: 5df8560d-560a-4a9a-b06f-dccee4cd6e4d
